@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:github_repository/src/github_apis.dart';
+import 'package:github_apis/src/github_apis.dart';
 import 'package:test/test.dart';
 
 

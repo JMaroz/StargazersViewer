@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:github_repository/github_apis.dart';
-import 'package:github_repository/src/entities/models.dart';
+import 'package:github_apis/github_apis.dart';
+import 'package:github_apis/src/entities/models.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'github_apis.g.dart';

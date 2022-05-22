@@ -8,7 +8,7 @@ class User {
   final String? login;
   final int? id;
   @JsonKey(name: "node_id")
-  final String nodeId;
+  final String? nodeId;
   @JsonKey(name: "avatar_url")
   final String?  avatarUrl;
   @JsonKey(name: "gravatar_id")

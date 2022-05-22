@@ -1,4 +1,4 @@
-import 'package:github_repository/src/entities/user.dart';
+import 'package:github_apis/src/entities/user.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'repository.g.dart';

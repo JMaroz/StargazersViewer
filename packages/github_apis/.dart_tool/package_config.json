@@ -500,13 +500,13 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "github_repository",
+      "name": "github_apis",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-05-21T21:28:00.301130Z",
+  "generated": "2022-05-22T10:10:38.104468Z",
   "generator": "pub",
   "generatorVersion": "2.17.1"
 }

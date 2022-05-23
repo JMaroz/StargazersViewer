@@ -10,7 +10,7 @@ class Result<T> {
       Result._(value: Result.failure(exception));
 
   ///[return] `true` if this instance represents a successful outcome.
-  bool get isSuccess => value! is _Failure;
+  bool get isSuccess => value is !_Failure;
 
   ///[return] `true` if this instance represents a failed outcome.
   bool get isFailure => value is _Failure;

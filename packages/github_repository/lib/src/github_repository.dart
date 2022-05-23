@@ -9,13 +9,6 @@ import 'package:github_repository/src/utils/result.dart';
 import 'package:tuple/tuple.dart';
 
 abstract class GitHubRepository {
-  final GitHubService service;
-  final GitHubStorage storage;
-
-  GitHubRepository({
-    required this.service,
-    required this.storage,
-  });
 
   ///Search the user that match with the given query
   ///[return] Tuple2, first is the users matched, the second is bool indicate if more data are available
@@ -30,30 +23,32 @@ abstract class GitHubRepository {
 }
 
 class GitHubRepositoryImp implements GitHubRepository {
-  final GitHubService service;
-  final GitHubStorage storage;
+
+  final GitHubService _service;
+  final GitHubStorage _storage;
 
   GitHubRepositoryImp({
-    required this.service,
-    required this.storage,
-  });
+    required GitHubService service,
+    required GitHubStorage storage,
+  })  : _service = service,
+        _storage = storage;
 
   Future<Result<Tuple2<List<GitHubUser>, bool>>> searchUser(String query) =>
-      _SearchUserBound(service: service, storage: storage, query: query)
+      _SearchUserBound(service: _service, storage: _storage, query: query)
           .getResult(true);
 
   Future<Result<List<GitHubUserRepository>>> getRepositories(String userName) =>
       _GetRepositories(
-        service: service,
-        storage: storage,
+        service: _service,
+        storage: _storage,
         userName: userName,
       ).getResult();
 
   Future<Result<List<GitHubUser>>> getStargazers(
           String userName, String repositoryName) =>
       _GetStargazers(
-        service: service,
-        storage: storage,
+        service: _service,
+        storage: _storage,
         userName: userName,
         repositoryName: repositoryName,
       ).getResult();
@@ -116,8 +111,8 @@ class _GetRepositories
 
   @override
   void saveNetworkResult(List<Repository> item) {
-    storage.saveRepositories(
-        userName, item.map((e) => GitHubUserRepository.fromRepository(e)).toList());
+    storage.saveRepositories(userName,
+        item.map((e) => GitHubUserRepository.fromRepository(e)).toList());
   }
 
   @override

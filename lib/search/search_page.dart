@@ -23,7 +23,7 @@ class SearchPage extends StatelessWidget {
 }
 
 class _SearchView extends StatelessWidget {
-  final _debounce = Debounce(milliseconds: 500);
+  final _debounce = Debounce(milliseconds: 800);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,10 @@ class _SearchView extends StatelessWidget {
       appBar: AppBar(title: const Text('Search')),
       body: BlocListener<SearchBloc, SearchState>(
         listener: (context, state) {
-          if (state is SearchResultError) {}
+          if (state is SearchResultError) {
+            final snackBar = SnackBar(content: Text(state.errorMessage));
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          }
         },
         child: Column(
           children: [
@@ -56,6 +59,10 @@ class _SearchView extends StatelessWidget {
                       style: const TextStyle(fontSize: 24.0),
                     ),
                   );
+                } else if (state is SearchLoading) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
                 } else {
                   return const Center(
                     child: Text('Insert text to start search'),
@@ -70,8 +77,6 @@ class _SearchView extends StatelessWidget {
   }
 
   void _handleTextSearch(BuildContext context, String text) {
-    if (text.length > 2) {
-      context.read<SearchBloc>().add(SearchEvent(text));
-    }
+    context.read<SearchBloc>().add(SearchEvent(text));
   }
 }

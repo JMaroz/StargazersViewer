@@ -20,13 +20,25 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     Emitter<SearchState> emit,
   ) async {
     emit(SearchLoading());
-    final result = await repository.searchUser(event.query);
-    if (result.isSuccess) {
-      emit(SearchResultSuccess(
-          result.getOrNull()!.item1, result.getOrNull()!.item2));
+    if (event.query.isEmpty) {
+      return emit(
+        const SearchState(),
+      );
+    } else if (event.query.length <= 2) {
+      return emit(
+        const SearchResultError("The name is too short, add some character"),
+      );
     } else {
-      emit(SearchResultError(result.exceptionOrNull()?.toString() ??
-          "Error while searching the users"));
+      final result = await repository.searchUser(event.query);
+      if (result.isSuccess) {
+        emit(SearchResultSuccess(
+          result.getOrNull()!.item1,
+          result.getOrNull()!.item2,
+        ));
+      } else {
+        emit(SearchResultError(result.exceptionOrNull()?.toString() ??
+            "Error while searching the users"));
+      }
     }
   }
 }

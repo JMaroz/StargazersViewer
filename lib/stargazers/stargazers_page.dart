@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:github_repository/github_repository.dart';
+import 'package:stargazersviewer/stargazers/bloc/stargazers_bloc.dart';
+import 'package:stargazersviewer/stargazers/view/stargazers_view.dart';
 
 class StargazersPage extends StatelessWidget {
   static Page page({
@@ -26,10 +29,10 @@ class StargazersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("StargazersPage"),
-      ),
+    return BlocProvider(
+      create: (context) => StargazersBloc(context.read<GitHubRepository>())
+        ..add(StargazersEvent(user: user, repository: repository)),
+      child: StargazersView(user: user, repository: repository),
     );
   }
 }

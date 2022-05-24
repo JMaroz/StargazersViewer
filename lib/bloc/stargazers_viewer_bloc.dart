@@ -12,19 +12,15 @@ class StargazersViewerBloc
     extends Bloc<StargazersViewerEvent, StargazersViewerState> {
   StargazersViewerBloc() : super(const StargazersViewerState()) {
     on<UserSelected>((event, emit) {
-      emit(state.copyWith(selectedUser: () => event.user));
-    });
-    on<UserDeselected>((event, emit) {
-      emit(state.copyWith(selectedUser: () => null));
+      emit(state.copyWith(
+        selectedUser: () => event.user,
+        selectedRepository: () => null,
+      ));
     });
     on<RepositorySelected>((event, emit) {
       emit(state.copyWith(
           selectedUser: () => event.user,
           selectedRepository: () => event.repository));
-    });
-    on<RepositoryDeselected>((event, emit) {
-      emit(state.copyWith(
-          selectedUser: () => event.user, selectedRepository: () => null));
     });
   }
 }

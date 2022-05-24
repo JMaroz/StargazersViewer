@@ -18,10 +18,6 @@ class UserSelected extends StargazersViewerEvent {
   List<Object> get props => [user];
 }
 
-class UserDeselected extends StargazersViewerEvent {
-  const UserDeselected();
-}
-
 class RepositorySelected extends StargazersViewerEvent {
 
   final GitHubUser user;
@@ -31,11 +27,4 @@ class RepositorySelected extends StargazersViewerEvent {
 
   @override
   List<Object> get props => [user];
-}
-
-class RepositoryDeselected extends StargazersViewerEvent {
-
-  final GitHubUser user;
-
-  const RepositoryDeselected({required this.user});
 }

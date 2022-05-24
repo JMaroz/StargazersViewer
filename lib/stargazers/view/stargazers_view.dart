@@ -14,7 +14,7 @@ class StargazersView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("${user.login}'s repositories")),
+      appBar: AppBar(title: Text("Stargazers of ${repository.name}")),
       body: BlocListener<StargazersBloc, StargazersState>(
         listener: (context, state) {
           if (state is StargazersResultError) {

@@ -12,7 +12,10 @@ class StargazersList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return GridView.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+      ),
       itemCount: users.length,
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.all(8.0),

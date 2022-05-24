@@ -2,7 +2,7 @@ part of 'stargazers_viewer_bloc.dart';
 
 class StargazersViewerState extends Equatable {
   final GitHubUser? selectedUser;
-  final GitHubRepository? selectedRepository;
+  final GitHubUserRepository? selectedRepository;
 
   const StargazersViewerState({this.selectedUser, this.selectedRepository});
 
@@ -11,7 +11,7 @@ class StargazersViewerState extends Equatable {
 
   StargazersViewerState copyWith({
     ValueGetter<GitHubUser?>? selectedUser,
-    ValueGetter<GitHubRepository?>? selectedRepository,
+    ValueGetter<GitHubUserRepository?>? selectedRepository,
   }) {
     return StargazersViewerState(
       selectedUser: selectedUser != null ? selectedUser() : this.selectedUser,

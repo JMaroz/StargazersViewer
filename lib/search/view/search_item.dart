@@ -29,19 +29,24 @@ class SearchItem extends StatelessWidget {
                 SizedBox.square(
                   child: user.avatarUrl.isNotEmpty
                       ? Image.network(user.avatarUrl)
-                      : Image.asset('images/avatar_placeholder.png'),
+                      : const Icon(Icons.face),
                 ),
                 const SizedBox(width: 10),
-                Text(user.login),
+                Text(
+                  user.login,
+                  style: const TextStyle(fontSize: 22),
+                ),
                 const SizedBox(width: 10),
-                if (user.htmlUrl.isNotEmpty)
+                if (user.htmlUrl.isNotEmpty) ...[
+                  const Spacer(),
                   SizedBox.square(
                     dimension: 50,
                     child: IconButton(
-                      icon: Image.asset('images/open.png'),
+                      icon: const Icon(Icons.open_in_new),
                       onPressed: _launchUrl,
                     ),
-                  )
+                  ),
+                ]
               ],
             ),
           ),

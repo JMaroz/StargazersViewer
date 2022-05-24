@@ -5,7 +5,7 @@ import 'package:github_repository/github_repository.dart';
 class StargazersPage extends StatelessWidget {
   static Page page({
     required GitHubUser user,
-    required GitHubRepository repository,
+    required GitHubUserRepository repository,
   }) {
     return MaterialPage<void>(
       child: StargazersPage(
@@ -16,7 +16,7 @@ class StargazersPage extends StatelessWidget {
   }
 
   final GitHubUser user;
-  final GitHubRepository repository;
+  final GitHubUserRepository repository;
 
   const StargazersPage({
     Key? key,

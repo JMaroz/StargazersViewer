@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:github_repository/github_repository.dart';
+import 'package:stargazersviewer/repository/bloc/repository_bloc.dart';
+import 'package:stargazersviewer/repository/view/repository_view.dart';
 
 class RepositoryPage extends StatelessWidget {
-
   static Page page({required GitHubUser user}) {
     return MaterialPage<void>(
       child: RepositoryPage(user: user),
@@ -15,10 +17,10 @@ class RepositoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("RepositoryPage"),
-      ),
+    return BlocProvider(
+      create: (context) => RepositoryBloc(context.read<GitHubRepository>())
+        ..add(RepositoryEvent(user)),
+      child: RepositoryView(user: user),
     );
   }
 }

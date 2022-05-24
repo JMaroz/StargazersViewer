@@ -1,5 +1,11 @@
 part of 'repository_bloc.dart';
 
-abstract class RepositoryEvent extends Equatable {
-  const RepositoryEvent();
+class RepositoryEvent extends Equatable {
+
+  final GitHubUser user;
+
+  const RepositoryEvent(this.user);
+
+  @override
+  List<Object?> get props => [];
 }

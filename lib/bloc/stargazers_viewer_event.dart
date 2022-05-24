@@ -25,7 +25,7 @@ class UserDeselected extends StargazersViewerEvent {
 class RepositorySelected extends StargazersViewerEvent {
 
   final GitHubUser user;
-  final GitHubRepository repository;
+  final GitHubUserRepository repository;
 
   const RepositorySelected({required this.user, required this.repository});
 

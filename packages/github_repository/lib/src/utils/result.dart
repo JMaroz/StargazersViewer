@@ -7,10 +7,10 @@ class Result<T> {
   factory Result.success(T value) => Result._(value: value);
 
   factory Result.failure(Exception exception) =>
-      Result._(value: Result.failure(exception));
+      Result._(value: _Failure(exception));
 
   ///[return] `true` if this instance represents a successful outcome.
-  bool get isSuccess => value is !_Failure;
+  bool get isSuccess => value is! _Failure;
 
   ///[return] `true` if this instance represents a failed outcome.
   bool get isFailure => value is _Failure;
@@ -46,7 +46,7 @@ class Result<T> {
 class _Failure {
   Exception exception;
 
-  _Failure({required this.exception});
+  _Failure(this.exception);
 
   @override
   bool operator ==(Object other) =>

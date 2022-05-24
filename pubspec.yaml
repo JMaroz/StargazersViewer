@@ -42,6 +42,7 @@ dependencies:
   flow_builder: ^0.0.8
   github_repository:
     path: ./packages/github_repository
+  url_launcher: ^6.1.2
 
 dev_dependencies:
   flutter_test:

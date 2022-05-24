@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:github_repository/github_repository.dart';
 import 'package:stargazersviewer/search/bloc/search_bloc.dart';
+import 'package:stargazersviewer/search/view/search_list.dart';
 import 'package:stargazersviewer/utils/debounce.dart';
 
 class SearchPage extends StatelessWidget {
@@ -11,7 +12,7 @@ class SearchPage extends StatelessWidget {
     );
   }
 
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,12 +54,7 @@ class _SearchView extends StatelessWidget {
             BlocBuilder<SearchBloc, SearchState>(
               builder: (context, state) {
                 if (state is SearchResultSuccess) {
-                  return Center(
-                    child: Text(
-                      'found ${state.usersFound.length} users',
-                      style: const TextStyle(fontSize: 24.0),
-                    ),
-                  );
+                  return Expanded(child: SearchList(users: state.usersFound));
                 } else if (state is SearchLoading) {
                   return const Center(
                     child: CircularProgressIndicator(),

@@ -12,6 +12,7 @@ class StargazersPage extends StatelessWidget {
   }) {
     return MaterialPage<void>(
       child: StargazersPage(
+        key: Key(repository.fullName),
         user: user,
         repository: repository,
       ),

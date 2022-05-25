@@ -7,7 +7,10 @@ import 'package:stargazersviewer/repository/view/repository_view.dart';
 class RepositoryPage extends StatelessWidget {
   static Page page({required GitHubUser user}) {
     return MaterialPage<void>(
-      child: RepositoryPage(user: user),
+      child: RepositoryPage(
+        key: Key(user.login),
+        user: user,
+      ),
     );
   }
 

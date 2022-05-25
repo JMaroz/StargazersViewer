@@ -269,7 +269,7 @@ packages:
     source: hosted
     version: "4.5.0"
   json_serializable:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: json_serializable
       url: "https://pub.dartlang.org"
@@ -395,7 +395,7 @@ packages:
     source: hosted
     version: "3.1.0"
   retrofit:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: retrofit
       url: "https://pub.dartlang.org"

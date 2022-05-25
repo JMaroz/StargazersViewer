@@ -20,7 +20,8 @@ abstract class GitHubApis {
   /// [userName] user name of the owner of the repository
   /// [repositoryName] the name of the repository
   /// [return] the list of the user that has stargazers the repo
-  Future<List<User>> getStargazers(String userName, String repositoryName);
+  Future<List<User>> getStargazers(String userName, String repositoryName,
+      [int perPage = 100]);
 }
 
 @RestApi(baseUrl: "https://api.github.com/")
@@ -34,9 +35,10 @@ abstract class GitHubApisImp implements GitHubApis {
   @GET("repos/{userName}/{repositoryName}/stargazers")
   @override
   Future<List<User>> getStargazers(
-      @Path("userName") String userName,
-      @Path("repositoryName") String repositoryName,
-      );
+    @Path("userName") String userName,
+    @Path("repositoryName") String repositoryName, [
+    @Query("per_page") int perPage = 100,
+  ]);
 
   @GET("/search/users")
   @override

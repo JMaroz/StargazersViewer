@@ -7,6 +7,8 @@ class GitHubUserRepository extends Equatable {
   final String fullName;
   final String htmlUrl;
   final String description;
+  final int stargazersCount;
+  final int watchersCount;
 
   const GitHubUserRepository({
     required this.id,
@@ -14,6 +16,8 @@ class GitHubUserRepository extends Equatable {
     required this.fullName,
     required this.htmlUrl,
     required this.description,
+    required this.stargazersCount,
+    required this.watchersCount,
   });
 
   factory GitHubUserRepository.fromRepository(Repository repository) =>
@@ -23,6 +27,8 @@ class GitHubUserRepository extends Equatable {
         fullName: repository.fullName ?? "",
         htmlUrl: repository.htmlUrl ?? "",
         description: repository.description ?? "",
+        stargazersCount:  repository.stargazersCount ?? 0,
+        watchersCount: repository.watchers ?? 0
       );
 
   @override

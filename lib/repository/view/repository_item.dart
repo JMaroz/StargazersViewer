@@ -40,11 +40,26 @@ class RepositoryItem extends StatelessWidget {
                     child: RichText(
                       overflow: TextOverflow.ellipsis,
                       text: TextSpan(
-                        text: repository.name,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 25,
-                        ),
+                        children: [
+                          const WidgetSpan(
+                            child: Icon(Icons.grade_outlined, size: 20),
+                            alignment: PlaceholderAlignment.middle,
+                          ),
+                          TextSpan(
+                            text: " ${repository.stargazersCount.toString()}",
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 18,
+                            ),
+                          ),
+                          TextSpan(
+                            text: " ${repository.name}",
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 25,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

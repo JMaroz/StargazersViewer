@@ -5,7 +5,6 @@ import 'package:github_repository/github_repository.dart';
 import 'package:meta/meta.dart';
 
 part 'stargazers_viewer_event.dart';
-
 part 'stargazers_viewer_state.dart';
 
 class StargazersViewerBloc

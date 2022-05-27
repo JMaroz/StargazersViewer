@@ -2,11 +2,11 @@
 
 Flutter application for retrieve the stargazers of a Github repository.
 
-![](docs/app.gif)
-
 [Download Apk](docs/app.apk)
 
-During the develop of this app i follow the approach of the Clean Architecture
+![](docs/app.gif)
+
+During development I followed the approach of the Clean Architecture
 
 > ####  Why?
 > Because Clean Architecture is the most powerful solutions for building clean apps that multiple teams can work on, independent data layers, scalable for adding/removing features, testable, independent frameworks/tools, and can be easily maintained at any time.

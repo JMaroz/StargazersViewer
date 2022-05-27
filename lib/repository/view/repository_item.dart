@@ -56,7 +56,7 @@ class RepositoryItem extends StatelessWidget {
                             text: " ${repository.name}",
                             style: const TextStyle(
                               color: Colors.black,
-                              fontSize: 25,
+                              fontSize: 21,
                             ),
                           ),
                         ],

@@ -2,6 +2,15 @@
 
 Flutter application for retrieve the stargazers of a Github repository.
 
+![](docs/app.gif)
+
+[Download Apk](docs/app.apk)
+
+During the develop of this app i follow the approach of the Clean Architecture
+
+> ####  Why?
+> Because Clean Architecture is the most powerful solutions for building clean apps that multiple teams can work on, independent data layers, scalable for adding/removing features, testable, independent frameworks/tools, and can be easily maintained at any time.
+
 # Architecture
 
 The source code is separate into three layers:
@@ -57,16 +66,21 @@ The application flows will start with a `AppStart` event which triggers the appl
 some data to present to the user. In addition, the presentation layer will have to figure out what
 to render on the screen based on the state from the business logic layer.
 
-## App Dependency 
+## App Dependency
 
-This app used 
+This app used
 
-- [flutter_bloc](https://pub.dev/packages/flutter_bloc) make it easy to implement the BLoC (Business Logic Component) design pattern. Built to be used with the bloc state management package.
-- [flow_builder](https://pub.dev/packages/flow_builder) which simplifies flows with a flexible, declarative API.
-- [url_launcher](https://pub.dev/packages/url_launcher) for launching a URL. Supports web, phone, SMS, and email schemes.
+- [flutter_bloc](https://pub.dev/packages/flutter_bloc) make it easy to implement the BLoC (Business
+  Logic Component) design pattern. Built to be used with the bloc state management package.
+- [flow_builder](https://pub.dev/packages/flow_builder) which simplifies flows with a flexible,
+  declarative API.
+- [url_launcher](https://pub.dev/packages/url_launcher) for launching a URL. Supports web, phone,
+  SMS, and email schemes.
 - [retrofit](https://pub.dev/packages/retrofit) for network call.
-- [json_serializable](https://pub.dev/packages/json_serializable) for automatically generate code for converting to and from JSON by annotation.
-- [equatable](https://pub.dev/packages/equatable) for helps to implement value based equality without needing to explicitly override == and hashCode.
+- [json_serializable](https://pub.dev/packages/json_serializable) for automatically generate code
+  for converting to and from JSON by annotation.
+- [equatable](https://pub.dev/packages/equatable) for helps to implement value based equality
+  without needing to explicitly override == and hashCode.
 - [tuple](https://pub.dev/packages/tuple) tuple data structure
 
 
